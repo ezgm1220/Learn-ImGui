@@ -12,7 +12,7 @@ void mGui::init(GLFWwindow* window)
     ImGuiIO& io = ImGui::GetIO();
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // 启用键盘控制
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // 启用游戏手柄控制
-    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // IF using Docking Branch
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // 开启窗口悬停功能
 
     // Setup Platform/Renderer backends(后端)
     ImGui_ImplGlfw_InitForOpenGL(window, true);          // Second param install_callback=true will install GLFW callbacks and chain to existing ones.
