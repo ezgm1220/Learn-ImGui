@@ -5,12 +5,13 @@
 
 void mGui::init(GLFWwindow* window)
 {
-    // Setup Dear ImGui context
+    // 设置上下文
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
+
     ImGuiIO& io = ImGui::GetIO();
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // 启用键盘控制
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // 启用游戏手柄控制
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // IF using Docking Branch
 
     // Setup Platform/Renderer backends(后端)
@@ -20,31 +21,28 @@ void mGui::init(GLFWwindow* window)
 
 void mGui::Begin()
 {
-    // (Your code calls glfwPollEvents())
-    // ...
-    // Start the Dear ImGui frame
+   // 渲染主循环开始时渲染UI所需调用的函数
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
-    ImGui::ShowDemoWindow(); // Show demo window! :)
 }
 
 void mGui::RenderUI()
 {
-
+    // 渲染UI
+    ImGui::ShowDemoWindow(); // Demo窗口
 }
 
 void mGui::End()
 {
-    // Rendering
-    // (Your code clears your framebuffer, renders your other stuff etc.)
+    //渲染结束时必须执行的函数
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-    // (Your code calls glfwSwapBuffers() etc.)
 }
 
 void mGui::Shutdown()
 {
+    // 销毁资源
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
